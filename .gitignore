@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Données et modèles locaux
+data/
+models/
+*.csv
+*.parquet
+*.sqlite
+*.db
+
+# Secrets et configuration locale
+.env
+.env.*
+!.env.example
+
+# macOS
+.DS_Store
