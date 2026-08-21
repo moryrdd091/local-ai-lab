@@ -8,7 +8,7 @@ services:
     environment:
       OLLAMA_BASE_URL: http://host.docker.internal:11434
       WEBUI_AUTH: "true"
-      ENABLE_SIGNUP: "true"
+      ENABLE_SIGNUP: "false"
     extra_hosts:
       - "host.docker.internal:host-gateway"
     volumes:
