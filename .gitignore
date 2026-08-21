@@ -24,8 +24,5 @@ models/
 # macOS
 .DS_Store
 
-# Open WebUI local data
-data/open-webui-personal/
-data/open-webui-shared/
-
-data/backups/
+# Sauvegardes locales
+/backups/
