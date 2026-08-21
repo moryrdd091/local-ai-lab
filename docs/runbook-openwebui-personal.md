@@ -6,9 +6,10 @@ Documenter l'exploitation (santé, sauvegarde, restauration) de l'instance Open 
 
 ## Emplacement
 
-- Racine du projet : `/Users/morymoh/Projects/local-ai-lab`
+- Racine du projet : le dossier cloné du dépôt `local-ai-lab`
 - Fichier de composition : `compose/personal.compose.yml`
 - Données persistantes : `data/open-webui-personal`
+- Répertoire de sauvegardes local : `backups/`
 
 ## Santé de l'instance
 
@@ -70,25 +71,16 @@ Sauvegarder :
 Les archives sont stockées dans `backups/` (ignoré par Git).
 
 ### Exécuter une sauvegarde manuelle
+> Remplace `/chemin/vers/local-ai-lab` par le chemin local du dépôt sur ta machine.
 
 ```bash
-cd /Users/morymoh/Projects/local-ai-lab
+cd /chemin/vers/local-ai-lab
 ./scripts/backup-openwebui-personal.sh
 ```
 
 Résultat :
 
 - Une archive `backups/openwebui-personal-backup-YYYY-MM-DD.tar.gz`.
-
-### Automatiser (exemple avec cron)
-
-Exemple de ligne cron pour une sauvegarde quotidienne à 3h00 :
-
-```cron
-0 3 * * * /Users/morymoh/Projects/local-ai-lab/scripts/backup-openwebui-personal.sh >> /Users/morymoh/Projects/local-ai-lab/backups/backup.log 2>&1
-```
-
-Adapter selon ton environnement.
 
 ## Restauration
 
@@ -103,20 +95,20 @@ Adapter selon ton environnement.
 1. S'assurer que l'instance est arrêtée (optionnel mais recommandé) :
 
    ```bash
-   cd /Users/morymoh/Projects/local-ai-lab/compose
+   cd /chemin/vers/local-ai-lab/compose
    docker compose -f personal.compose.yml down
    ```
 
 2. Identifier l'archive à restaurer dans `backups/` :
 
    ```bash
-   ls -lh /Users/morymoh/Projects/local-ai-lab/backups/openwebui-personal-backup-*.tar.gz
+   ls -lh backups/openwebui-personal-backup-*.tar.gz
    ```
 
 3. Extraire l'archive depuis la racine du projet :
 
    ```bash
-   cd /Users/morymoh/Projects/local-ai-lab
+   cd /chemin/vers/local-ai-lab
    tar -xzf backups/openwebui-personal-backup-YYYY-MM-DD.tar.gz
    ```
 
@@ -127,7 +119,7 @@ Adapter selon ton environnement.
 4. Redémarrer l'instance :
 
    ```bash
-   cd /Users/morymoh/Projects/local-ai-lab/compose
+   cd /chemin/vers/local-ai-lab/compose
    docker compose -f personal.compose.yml up -d
    ```
 
