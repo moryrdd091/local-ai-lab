@@ -7,7 +7,7 @@ Le projet vise à déployer de manière reproductible deux instances isolées d�
 - Une instance personnelle, réservée à un usage local
 - Une instance partagée, réservée à un petit groupe autorisé via un accès privé sécurisé
 
-> État : conception et préparation de l’infrastructure. Aucune instance partagée n’est encore exposée.
+> État : l’instance Open WebUI personnelle est opérationnelle en accès local. L’instance partagée, l’accès distant privé et son exposition réseau ne sont pas encore configurés.
 
 ## Objectifs
 
@@ -49,6 +49,28 @@ Open WebUI partagé ─────────┘
 - Tailscale prévu pour l’accès distant privé
 - Markdown et scripts shell pour la documentation et l’exploitation
 
+## État actuel
+
+### Instance personnelle
+
+- Open WebUI `v0.11.0` est exécuté avec Docker Compose.
+- L’interface est accessible uniquement en local sur `http://localhost:3000`.
+- Le port est lié à `127.0.0.1` : l’instance n’est exposée ni au réseau local ni à Internet.
+- Open WebUI utilise l’installation native d’Ollama via `host.docker.internal:11434`.
+- Les inscriptions sont désactivées.
+- Les données persistantes sont séparées dans `data/open-webui-personal/` et ignorées par Git.
+- Un script de sauvegarde et un runbook d’exploitation sont disponibles dans `scripts/` et `docs/`.
+
+### Instance partagée
+
+- Open WebUI `v0.11.0` est exécuté avec Docker Compose.
+- L’interface est actuellement accessible uniquement en local sur `http://localhost:3001`.
+- Le port est lié à `127.0.0.1` : l’instance n’est exposée ni au réseau local ni à Internet.
+- L’authentification est active et les inscriptions sont désactivées.
+- Les données persistantes sont isolées dans `data/open-webui-shared/` et ignorées par Git.
+- Un script de sauvegarde et un runbook d’exploitation dédiés sont disponibles dans `scripts/` et `docs/`.
+- L’accès distant privé via Tailscale n’est pas encore configuré.
+
 ## Modèles locaux
 
 Les modèles ne sont pas inclus dans ce dépôt Git. Ils sont stockés localement sur un SSD externe, configuré avec la variable `OLLAMA_MODELS`.
@@ -74,11 +96,11 @@ Les modèles ne sont pas inclus dans ce dépôt Git. Ils sont stockés localemen
 - [x] Préparer un environnement macOS propre et un dépôt GitHub
 - [x] Installer Ollama et stocker les modèles sur SSD externe
 - [x] Télécharger et vérifier les modèles locaux
-- [ ] Installer et vérifier Docker Desktop
-- [ ] Créer l’instance Open WebUI personnelle
-- [ ] Créer l’instance Open WebUI partagée avec persistance isolée
+- [x] Installer et vérifier Docker Desktop
+- [x] Créer et sécuriser l’instance Open WebUI personnelle
+- [x] Créer l’instance Open WebUI partagée avec persistance isolée
 - [ ] Mettre en place l’accès distant privé
-- [ ] Ajouter sauvegardes, contrôles de santé et documentation d’exploitation
+- [x] Ajouter sauvegardes, contrôles de santé et documentation pour l'instance personnelle
 - [ ] Réaliser un benchmark reproductible des modèles locaux
 
 ## Limites connues
