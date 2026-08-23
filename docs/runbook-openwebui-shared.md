@@ -22,8 +22,9 @@ Documenter l'exploitation de l'instance Open WebUI partagée : santé, accès, s
 - Les comptes sont créés manuellement par un administrateur.
 - Le premier compte créé est administrateur.
 - Ne jamais partager un compte administrateur avec un utilisateur standard.
-- L'accès distant privé via Tailscale est prévu mais n'est pas encore configuré.
-- L'instance n'est actuellement accessible que depuis la machine locale.
+- L'accès distant privé est fourni par Tailscale Serve, uniquement aux appareils autorisés du tailnet.
+- Le proxy Tailscale Serve cible l'interface locale sur `http://127.0.0.1:3001`.
+- Tailscale Funnel n'est pas utilisé : aucun accès Internet public n'est prévu.
 
 ## Santé de l'instance
 
@@ -51,7 +52,8 @@ Rechercher :
 
 ### Vérifier l'interface web
 
-1. Ouvrir `http://localhost:3001`.
+1. Depuis le Mac hôte, ouvrir `http://localhost:3001`.
+2. Depuis un appareil autorisé du tailnet, ouvrir l'URL HTTPS privée configurée par Tailscale Serve.
 2. Se connecter avec le compte administrateur.
 3. Vérifier :
    - le chargement de la page d'accueil ;
@@ -171,10 +173,11 @@ docker compose -f shared.compose.yml start
 - Ne pas créer de compte partagé : chaque personne doit utiliser son propre compte.
 - Ne pas utiliser de compte administrateur pour les usages courants.
 - Ne pas committer les données `data/`, les archives `backups/`, les fichiers `.env`, mots de passe, clés API ou tokens.
-- Avant de mettre en place un accès distant, conserver une couche d'accès privée (Tailscale) et ne pas ouvrir de port entrant sur le routeur.
+- Conserver Tailscale Serve pour l'accès distant privé et ne pas ouvrir de port entrant sur le routeur.
+- Ne jamais utiliser `tailscale funnel` pour cette instance.
 
 ## Évolution
 
 - Mettre à jour ce runbook lors d'un changement d'image Open WebUI, de volume, de port, de politique de comptes ou de mode d'accès.
-- Documenter séparément la configuration Tailscale avant son activation.
+- Mettre à jour la documentation Tailscale à chaque changement de proxy, d'URL ou de politique d'accès.
 - Tester périodiquement une restauration dans un environnement isolé.

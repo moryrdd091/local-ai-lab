@@ -7,7 +7,7 @@ Le projet vise à déployer de manière reproductible deux instances isolées d�
 - Une instance personnelle, réservée à un usage local
 - Une instance partagée, réservée à un petit groupe autorisé via un accès privé sécurisé
 
-> État : l’instance Open WebUI personnelle est opérationnelle en accès local. L’instance partagée, l’accès distant privé et son exposition réseau ne sont pas encore configurés.
+> État : les deux instances Open WebUI sont opérationnelles. L’instance personnelle reste locale ; l’instance partagée est accessible uniquement via un accès HTTPS privé au tailnet.
 
 ## Objectifs
 
@@ -46,7 +46,7 @@ Open WebUI partagé ─────────┘
 - Open WebUI exécuté avec Docker Compose
 - Docker Desktop
 - Git et GitHub
-- Tailscale prévu pour l’accès distant privé
+- Tailscale Serve pour l’accès distant privé au tailnet
 - Markdown et scripts shell pour la documentation et l’exploitation
 
 ## État actuel
@@ -69,7 +69,8 @@ Open WebUI partagé ─────────┘
 - L’authentification est active et les inscriptions sont désactivées.
 - Les données persistantes sont isolées dans `data/open-webui-shared/` et ignorées par Git.
 - Un script de sauvegarde et un runbook d’exploitation dédiés sont disponibles dans `scripts/` et `docs/`.
-- L’accès distant privé via Tailscale n’est pas encore configuré.
+- L’accès distant privé est fourni par Tailscale Serve, uniquement aux appareils autorisés du tailnet.
+- Aucun port entrant n’est ouvert sur le routeur et Tailscale Funnel n’est pas utilisé.
 
 ## Modèles locaux
 
@@ -99,9 +100,17 @@ Les modèles ne sont pas inclus dans ce dépôt Git. Ils sont stockés localemen
 - [x] Installer et vérifier Docker Desktop
 - [x] Créer et sécuriser l’instance Open WebUI personnelle
 - [x] Créer l’instance Open WebUI partagée avec persistance isolée
-- [ ] Mettre en place l’accès distant privé
+- [x] Mettre en place l’accès distant privé via Tailscale Serve
 - [x] Ajouter sauvegardes, contrôles de santé et documentation pour l'instance personnelle
 - [ ] Réaliser un benchmark reproductible des modèles locaux
+
+## Documentation
+
+- [Architecture](docs/architecture.md)
+- [Modèle de menace](docs/threat-model.md)
+- [Runbook d’exploitation commun](docs/operations-runbook.md)
+- [Runbook Open WebUI personnel](docs/runbook-openwebui-personal.md)
+- [Runbook Open WebUI partagé](docs/runbook-openwebui-shared.md)
 
 ## Limites connues
 

@@ -37,7 +37,7 @@ Rechercher :
 
 ### Vérifier l'interface web
 
-1. Ouvrir l'URL de l'instance (ex. `http://localhost:3000` ou via ton reverse proxy).
+1. Ouvrir l'interface locale de l'instance (ex. `http://localhost:3000`).
 2. Se connecter avec le compte admin.
 3. Vérifier :
    - chargement de la page d'accueil,
