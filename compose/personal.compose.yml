@@ -1,6 +1,6 @@
 services:
   open-webui-personal:
-    image: ghcr.io/open-webui/open-webui:v0.11.0
+    image: ghcr.io/open-webui/open-webui:v0.11.3
     container_name: open-webui-personal
     restart: unless-stopped
     ports:

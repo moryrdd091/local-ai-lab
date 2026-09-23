@@ -53,7 +53,7 @@ Open WebUI partagé ─────────┘
 
 ### Instance personnelle
 
-- Open WebUI `v0.11.0` est exécuté avec Docker Compose.
+- Open WebUI `v0.11.3` est exécuté avec Docker Compose.
 - L’interface est accessible uniquement en local sur `http://localhost:3000`.
 - Le port est lié à `127.0.0.1` : l’instance n’est exposée ni au réseau local ni à Internet.
 - Open WebUI utilise l’installation native d’Ollama via `host.docker.internal:11434`.
