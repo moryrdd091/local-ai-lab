@@ -46,6 +46,8 @@ Open WebUI partagé ─────────┘
 - Open WebUI exécuté avec Docker Compose
 - Docker Desktop
 - Git et GitHub
+- Continue dans VS Code, avec Model Context Protocol (MCP)
+- SearXNG local pour la recherche Web sans clé API
 - Tailscale Serve pour l’accès distant privé au tailnet
 - Markdown et scripts shell pour la documentation et l’exploitation
 
@@ -92,6 +94,18 @@ Les modèles ne sont pas inclus dans ce dépôt Git. Ils sont stockés localemen
 - Les images Docker doivent être officielles et épinglées à une version testée
 - Les sauvegardes et la restauration font partie du périmètre du projet
 
+## Recherche Web locale
+
+Continue dans VS Code peut utiliser un serveur MCP local pour effectuer des recherches Web via SearXNG.
+
+- Le serveur MCP fournit l’outil `search_web` en lecture seule.
+- Continue lance le serveur localement via `stdio` : aucun port MCP supplémentaire n’est exposé.
+- Le serveur contacte SearXNG sur `http://localhost:8080/search`.
+- Aucune clé API de recherche Web n’est requise.
+- La configuration Continue est locale au poste et n’est pas versionnée avec le dépôt.
+
+Voir la documentation détaillée : [Recherche Web locale avec SearXNG et MCP](docs/searxng-mcp.md).
+
 ## Feuille de route
 
 - [x] Préparer un environnement macOS propre et un dépôt GitHub
@@ -111,6 +125,7 @@ Les modèles ne sont pas inclus dans ce dépôt Git. Ils sont stockés localemen
 - [Runbook d’exploitation commun](docs/operations-runbook.md)
 - [Runbook Open WebUI personnel](docs/runbook-openwebui-personal.md)
 - [Runbook Open WebUI partagé](docs/runbook-openwebui-shared.md)
+- [Recherche Web locale avec SearXNG et MCP](docs/searxng-mcp.md)
 
 ## Limites connues
 
