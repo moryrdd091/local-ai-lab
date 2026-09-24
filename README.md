@@ -23,7 +23,7 @@ Le projet vise à déployer de manière reproductible deux instances isolées d�
 Utilisateurs locaux
         │
         ▼
-Open WebUI personnel ──────┐
+Open WebUI personnel ───────┐
                             │
                             ▼
                     Ollama natif sur macOS
@@ -116,7 +116,7 @@ Voir la documentation détaillée : [Recherche Web locale avec SearXNG et MCP](d
 - [x] Créer l’instance Open WebUI partagée avec persistance isolée
 - [x] Mettre en place l’accès distant privé via Tailscale Serve
 - [x] Ajouter sauvegardes, contrôles de santé et documentation pour l'instance personnelle
-- [ ] Réaliser un benchmark reproductible des modèles locaux
+- [x] Réaliser un benchmark reproductible des modèles locaux
 
 ## Documentation
 
@@ -126,6 +126,7 @@ Voir la documentation détaillée : [Recherche Web locale avec SearXNG et MCP](d
 - [Runbook Open WebUI personnel](docs/runbook-openwebui-personal.md)
 - [Runbook Open WebUI partagé](docs/runbook-openwebui-shared.md)
 - [Recherche Web locale avec SearXNG et MCP](docs/searxng-mcp.md)
+- [Benchmark des modèles locaux](docs/model-benchmark.md)
 
 ## Limites connues
 

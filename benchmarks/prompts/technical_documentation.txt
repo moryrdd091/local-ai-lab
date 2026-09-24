@@ -1,0 +1,27 @@
+Write a concise operations runbook section in Markdown for a local LLM platform.
+
+Context:
+- Ollama runs natively on macOS.
+- Models are stored on an external SSD.
+- Open WebUI runs in Docker and reaches Ollama through host.docker.internal:11434.
+- A personal Open WebUI instance is reachable only on localhost:3000.
+- A shared instance is reachable through a private Tailscale network.
+- The shared instance has authentication enabled and public sign-up disabled.
+
+Task:
+Write a section titled "Incident: Open WebUI cannot reach Ollama".
+
+It must include:
+- Symptoms;
+- Safe diagnostic steps in order;
+- Exact commands where relevant;
+- Likely causes;
+- Recovery actions;
+- A security warning;
+- A short escalation criterion.
+
+Constraints:
+- Do not recommend exposing Ollama to the LAN or Internet.
+- Do not recommend disabling authentication.
+- Keep it under 450 words.
+- Use clear Markdown headings and bullets.

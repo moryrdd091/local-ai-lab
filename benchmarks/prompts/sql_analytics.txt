@@ -1,0 +1,33 @@
+You are a data analyst using PostgreSQL.
+
+Schema:
+
+orders(
+  order_id BIGINT PRIMARY KEY,
+  customer_id BIGINT NOT NULL,
+  ordered_at TIMESTAMPTZ NOT NULL,
+  status TEXT NOT NULL,
+  total_amount NUMERIC(12, 2) NOT NULL
+)
+
+Task:
+Write one PostgreSQL query that returns, for each calendar month of 2025:
+
+- month_start as the first day of the month;
+- paid_order_count;
+- paying_customer_count;
+- revenue;
+- month_over_month_revenue_growth_pct.
+
+Rules:
+- Include only rows where status = 'paid'.
+- Include every month from January through December 2025, including months with no paid orders.
+- revenue must be 0 for months without paid orders.
+- month_over_month_revenue_growth_pct must be NULL for January and when the previous month revenue is 0.
+- Round the growth percentage to two decimal places.
+- Return results ordered by month_start.
+- Use PostgreSQL syntax only.
+
+Return only:
+1. the SQL query;
+2. a concise explanation of the approach.

@@ -1,0 +1,25 @@
+You are reviewing a Python function used in a data pipeline.
+
+Task:
+1. Identify the bugs and reliability problems.
+2. Provide a corrected implementation.
+3. Explain the changes briefly.
+4. Add one minimal pytest test that would fail with the original code.
+
+Constraints:
+- Use Python 3.12 standard library only.
+- Preserve the intended behavior: return the arithmetic mean of valid numeric values.
+- Ignore None values.
+- Raise ValueError when no valid numeric values remain.
+- Treat bool as invalid even though bool is a subclass of int.
+- Do not mutate the input list.
+- Return only these sections: Problems, Corrected code, Test.
+
+Code to review:
+
+def average(values=[]):
+    total = 0
+    for value in values:
+        if value:
+            total += value
+    return total / len(values)
