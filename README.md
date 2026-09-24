@@ -1,13 +1,17 @@
 # Local AI Lab
 
-Plateforme locale d’expérimentation LLM et de LLMOps, conçue sur Mac mini Apple Silicon.
+Plateforme locale d’expérimentation et d’exploitation de modèles de langage, conçue sur un Mac mini Apple Silicon.
 
-Le projet vise à déployer de manière reproductible deux instances isolées d’Open WebUI, connectées à une seule installation locale d’Ollama :
+Le projet démontre une approche pragmatique de LLMOps / AI platform engineering : exécuter des modèles open source localement, isoler les usages personnel et partagé, sécuriser l’accès distant, documenter l’exploitation et évaluer les modèles sur des tâches représentatives.
 
-- Une instance personnelle, réservée à un usage local
-- Une instance partagée, réservée à un petit groupe autorisé via un accès privé sécurisé
+La plateforme repose sur une seule installation native d’Ollama, avec les modèles stockés sur un SSD externe. Elle comprend :
 
-> État : les deux instances Open WebUI sont opérationnelles. L’instance personnelle reste locale ; l’instance partagée est accessible uniquement via un accès HTTPS privé au tailnet.
+- deux instances Open WebUI isolées : une personnelle, accessible uniquement en local, et une partagée, accessible à un petit groupe via un réseau privé Tailscale ;
+- sauvegardes, contrôles de santé, runbooks et documentation d’architecture et de sécurité ;
+- Continue dans VS Code avec recherche Web locale via MCP et SearXNG ;
+- un benchmark reproductible des modèles locaux sur Python, SQL et documentation technique.
+
+> État : les deux instances Open WebUI sont opérationnelles. L’instance personnelle reste locale ; l’instance partagée est accessible uniquement via un accès HTTPS privé au tailnet. Les intégrations MCP/SearXNG et le benchmark local sont documentés dans ce dépôt.
 
 ## Objectifs
 
@@ -134,4 +138,6 @@ Cette plateforme fonctionne sur une machine personnelle avec 16 Go de mémoire u
 
 ## Licence
 
-À définir avant toute réutilisation publique du code.
+Aucune licence n’est actuellement accordée.
+
+Le dépôt est publié à des fins de consultation et de portfolio. Tous droits réservés ; toute réutilisation, modification ou redistribution du code nécessite une autorisation préalable.
