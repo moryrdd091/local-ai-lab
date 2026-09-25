@@ -18,7 +18,9 @@ models/
 .env
 .env.*
 !.env.example
-.continue/
+.continue/*
+!.continue/rules/
+!.continue/rules/*.md
 
 # macOS
 .DS_Store
