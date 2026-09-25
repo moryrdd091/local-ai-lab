@@ -40,6 +40,12 @@ Open WebUI partagé
 | Stockage externe | Conserve les modèles Ollama | Local au Mac |
 | Stockage persistant Open WebUI | Conserve comptes, conversations, fichiers et réglages | Répertoires distincts, hors Git |
 
+## Outils de développement
+
+Continue dans VS Code peut utiliser un serveur MCP local en `stdio` pour interroger une instance locale de SearXNG. Cette intégration est indépendante des flux Open WebUI et ne publie aucun port MCP.
+
+Voir [Recherche Web locale avec SearXNG et MCP](searxng-mcp.md).
+
 ## Frontières de confiance
 
 Le modèle privilégie la réduction de surface d’exposition :

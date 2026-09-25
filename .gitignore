@@ -11,8 +11,6 @@ venv/
 # Données et modèles locaux
 data/
 models/
-*.csv
-*.parquet
 *.sqlite
 *.db
 
@@ -20,6 +18,7 @@ models/
 .env
 .env.*
 !.env.example
+.continue/
 
 # macOS
 .DS_Store

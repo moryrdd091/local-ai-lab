@@ -5,8 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 BACKUP_DIR="$PROJECT_ROOT/backups"
-DATE="$(date +%F)"
-ARCHIVE_NAME="openwebui-shared-backup-${DATE}.tar.gz"
+TIMESTAMP="$(date +%Y-%m-%d_%H-%M-%S)"
+ARCHIVE_NAME="openwebui-shared-backup-${TIMESTAMP}.tar.gz"
 
 COMPOSE_FILE="compose/shared.compose.yml"
 DATA_DIR="data/open-webui-shared"

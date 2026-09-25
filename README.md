@@ -63,13 +63,14 @@ Open WebUI partagé ─────────┘
 - L’interface est accessible uniquement en local sur `http://localhost:3000`.
 - Le port est lié à `127.0.0.1` : l’instance n’est exposée ni au réseau local ni à Internet.
 - Open WebUI utilise l’installation native d’Ollama via `host.docker.internal:11434`.
-- Les inscriptions sont désactivées.
+- L’authentification est active et les inscriptions sont désactivées.
 - Les données persistantes sont séparées dans `data/open-webui-personal/` et ignorées par Git.
 - Un script de sauvegarde et un runbook d’exploitation sont disponibles dans `scripts/` et `docs/`.
 
 ### Instance partagée
 
 - Open WebUI `v0.11.0` est exécuté avec Docker Compose.
+- Cette version reste épinglée pour préserver une configuration déjà validée ; toute mise à jour fera l’objet d’une sauvegarde et d’une validation contrôlée.
 - L’interface est actuellement accessible uniquement en local sur `http://localhost:3001`.
 - Le port est lié à `127.0.0.1` : l’instance n’est exposée ni au réseau local ni à Internet.
 - L’authentification est active et les inscriptions sont désactivées.

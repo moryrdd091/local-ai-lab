@@ -54,8 +54,8 @@ Rechercher :
 
 1. Depuis le Mac hôte, ouvrir `http://localhost:3001`.
 2. Depuis un appareil autorisé du tailnet, ouvrir l'URL HTTPS privée configurée par Tailscale Serve.
-2. Se connecter avec le compte administrateur.
-3. Vérifier :
+3. Se connecter avec le compte administrateur.
+4. Vérifier :
    - le chargement de la page d'accueil ;
    - la présence des modèles Ollama ;
    - l'envoi et la réception d'un message avec un modèle ;

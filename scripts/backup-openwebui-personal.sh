@@ -19,8 +19,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 BACKUP_DIR="$PROJECT_ROOT/backups"
-DATE="$(date +%F)"
-ARCHIVE_NAME="openwebui-personal-backup-${DATE}.tar.gz"
+TIMESTAMP="$(date +%Y-%m-%d_%H-%M-%S)"
+ARCHIVE_NAME="openwebui-personal-backup-${TIMESTAMP}.tar.gz"
 
 # Éléments à sauvegarder (chemins relatifs à PROJECT_ROOT)
 COMPOSE_FILE="compose/personal.compose.yml"

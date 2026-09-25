@@ -4,6 +4,8 @@
 
 Ce runbook décrit les opérations communes aux deux instances Open WebUI. Les procédures propres à chaque instance sont documentées dans les runbooks dédiés.
 
+Les ports et chemins indiqués sous la forme `<...>` sont des placeholders. Consulter les runbooks dédiés pour les valeurs propres à chaque instance.
+
 ## Prérequis de démarrage
 
 Avant de démarrer les services :
@@ -119,7 +121,7 @@ docker stats
 
 ```bash
 ollama list
-curl -I http://127.0.0.1:11434/
+curl -sS http://127.0.0.1:11434/api/tags | python3 -m json.tool
 ```
 
 ### Vérifier Tailscale
@@ -150,6 +152,8 @@ tar -tzf backups/<backup-file>.tar.gz | head -30
 ```
 
 Avant une mise à jour importante, arrêter brièvement l’instance concernée, créer une sauvegarde, puis la redémarrer.
+
+Les scripts sauvegardent la configuration et les données Open WebUI, mais pas les modèles Ollama stockés sur le SSD externe. Après une perte du stockage externe, les modèles doivent être retéléchargés avec Ollama.
 
 ## Mise à jour contrôlée
 

@@ -16,15 +16,14 @@ Documenter l'exploitation (santé, sauvegarde, restauration) de l'instance Open 
 ### Vérifier que le conteneur tourne
 
 ```bash
-docker ps | grep open-webui-personal
+docker ps --filter "name=open-webui-personal"
 ```
 
-Le conteneur doit apparaître avec un statut `Up`.
+Le conteneur doit apparaître avec un statut `Up` et idéalement `healthy`.
 
 ### Vérifier les logs
 
 ```bash
-docker logs open-webui-personal
 docker logs --tail 100 open-webui-personal
 docker logs -f open-webui-personal
 ```
@@ -80,7 +79,39 @@ cd /chemin/vers/local-ai-lab
 
 Résultat :
 
-- Une archive `backups/openwebui-personal-backup-YYYY-MM-DD.tar.gz`.
+- Une archive `backups/openwebui-personal-backup-YYYY-MM-DD_HH-MM-SS.tar.gz`.
+
+### Vérifier le contenu d’une archive
+
+```bash
+cd /chemin/vers/local-ai-lab
+tar -tzf backups/openwebui-personal-backup-YYYY-MM-DD_HH-MM-SS.tar.gz | head -30
+```
+
+L’archive doit contenir `compose/personal.compose.yml` et `data/open-webui-personal/`.
+
+### Sauvegarde cohérente avant une opération sensible
+
+Avant une mise à jour importante ou une restauration de référence, arrêter brièvement l’instance afin de garantir un instantané cohérent de sa base de données :
+
+```bash
+cd /chemin/vers/local-ai-lab/compose
+docker compose -f personal.compose.yml stop
+```
+
+Créer ensuite la sauvegarde :
+
+```bash
+cd /chemin/vers/local-ai-lab
+./scripts/backup-openwebui-personal.sh
+```
+
+Puis redémarrer le service :
+
+```bash
+cd /chemin/vers/local-ai-lab/compose
+docker compose -f personal.compose.yml start
+```
 
 ## Restauration
 
@@ -134,6 +165,8 @@ Résultat :
 - Port exposé uniquement en local (`127.0.0.1:3000:8080`).
 - Accès admin protégé par mot de passe.
 - Sauvegardes régulières et test de restauration périodique recommandé.
+- Ne jamais exposer directement le port Ollama `11434`.
+- Ne pas committer `data/`, `backups/`, les fichiers `.env`, mots de passe, clés API ou tokens.
 
 ## Évolution
 
