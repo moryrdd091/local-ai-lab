@@ -91,14 +91,14 @@ cd /chemin/vers/local-ai-lab
 Résultat attendu :
 
 ```text
-backups/openwebui-shared-backup-YYYY-MM-DD.tar.gz
+backups/openwebui-shared-backup-YYYY-MM-DD_HH-MM-SS.tar.gz
 ```
 
 ### Vérifier le contenu d'une archive
 
 ```bash
 cd /chemin/vers/local-ai-lab
-tar -tzf backups/openwebui-shared-backup-YYYY-MM-DD.tar.gz | head -30
+tar -tzf backups/openwebui-shared-backup-YYYY-MM-DD_HH-MM-SS.tar.gz | head -30
 ```
 
 L'archive doit contenir `compose/shared.compose.yml` et `data/open-webui-shared/`.
@@ -147,7 +147,7 @@ docker compose -f shared.compose.yml start
 3. Extraire l'archive depuis la racine du projet :
 
    ```bash
-   tar -xzf backups/openwebui-shared-backup-YYYY-MM-DD.tar.gz
+   tar -xzf backups/openwebui-shared-backup-YYYY-MM-DD_HH-MM-SS.tar.gz
    ```
 
 4. Redémarrer l'instance :

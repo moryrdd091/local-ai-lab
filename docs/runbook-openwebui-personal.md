@@ -140,7 +140,7 @@ docker compose -f personal.compose.yml start
 
    ```bash
    cd /chemin/vers/local-ai-lab
-   tar -xzf backups/openwebui-personal-backup-YYYY-MM-DD.tar.gz
+   tar -xzf backups/openwebui-personal-backup-YYYY-MM-DD_HH-MM-SS.tar.gz
    ```
 
    Cela écrasera :
